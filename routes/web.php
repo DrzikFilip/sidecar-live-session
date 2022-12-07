@@ -26,6 +26,6 @@ Route::get('/lambda', function () {
         ['max' => 7],
     ]);
 
-    dd(collect($response)->map->body());
+    //dd(collect($response)->map->body());
     return collect($response)->map->body();
 });
