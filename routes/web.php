@@ -19,7 +19,10 @@ Route::get('/', function () {
 });
 
 Route::get('/lambda', function () {
-    return PrintInterval::execute([
+    // If you're looking for "fire-and-forget" style execution
+    $result = PrintInterval::executeAsEvent([
         'max' => 4
     ]);
+
+    dd($result);
 });
