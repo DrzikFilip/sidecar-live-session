@@ -19,7 +19,13 @@ Route::get('/', function () {
 });
 
 Route::get('/lambda', function () {
-    return PrintInterval::execute([
-        'max' => 4
+    $response = PrintInterval::executeMany([
+        ['max' => 4],
+        ['max' => 3],
+        ['max' => 16],
+        ['max' => 7],
     ]);
+
+    dd(collect($response)->map->body());
+    return collect($response)->map->body();
 });
